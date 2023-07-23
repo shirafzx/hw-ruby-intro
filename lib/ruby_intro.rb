@@ -40,24 +40,16 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  # Check if the string is empty or nil
   return false if s.nil? || s.empty?
-
-  # Convert the first character of the string to lowercase for easier comparison
   first_char = s[0].downcase
-
-  # Check if the first character is a letter (consonant) and not a vowel
   return first_char.match?(/[a-z]/) && !first_char.match?(/[aeiou]/)
 end
 
 def binary_multiple_of_4? s
-  # Check if the string is empty or nil
   return false if s.nil? || s.empty?
 
-  # Check if the string contains only '0' and '1' characters
   return false unless s.match?(/^[01]+$/)
 
-  # Convert the binary string to an integer and check if it is divisible by 4
   num = s.to_i(2)
   return num % 4 == 0
 end
@@ -68,10 +60,7 @@ class BookInStock
   attr_accessor :isbn, :price
 
   def initialize(isbn, price)
-    # Check for valid ISBN
     raise ArgumentError, "ISBN cannot be an empty string" if isbn.empty?
-
-    # Check for valid price
     raise ArgumentError, "Price should be greater than zero" if price <= 0
 
     @isbn = isbn
